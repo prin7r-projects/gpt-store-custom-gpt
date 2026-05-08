@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>After the GPT Store · Pitch Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300..700;1,8..60,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper:#FAF6EE; --paper-deep:#F2EBDB; --rule:#E5DBC4;
+    --ink:#161513; --ink-soft:#3A372F; --reader:#7A7464;
+    --saffron:#E8A82B; --saffron-soft:rgba(232,168,43,0.42);
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+  }
+  .deck { display: flex; flex-direction: column; gap: 40px; padding: 48px 24px; max-width: 1100px; margin: 0 auto; }
+  .slide {
+    background: #FFFCF6;
+    border: 1px solid var(--rule);
+    border-radius: 16px;
+    padding: 56px 64px;
+    box-shadow: 0 1px 0 rgba(22,21,19,0.04), 0 18px 40px -18px rgba(22,21,19,0.16);
+    aspect-ratio: 16/10;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    position: relative;
+    page-break-after: always;
+  }
+  .slide-no {
+    position: absolute; top: 24px; right: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; color: var(--reader);
+    text-transform: uppercase;
+  }
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; color: var(--reader);
+    text-transform: uppercase; margin-bottom: 14px;
+  }
+  h1.cover {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 380;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    letter-spacing: -0.02em;
+    line-height: 1.04;
+    margin: 0 0 28px;
+  }
+  h1.cover em { font-style: italic; color: var(--ink-soft); }
+  h2 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 380;
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+    letter-spacing: -0.018em;
+    line-height: 1.1;
+    margin: 0 0 18px;
+  }
+  p, li { font-size: 16px; line-height: 1.6; color: var(--ink-soft); margin: 0 0 12px; }
+  .lede {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px; line-height: 1.45;
+    color: var(--ink); font-weight: 360;
+  }
+  .mark { background: linear-gradient(180deg, transparent 60%, var(--saffron-soft) 60%); padding: 0 0.08em; }
+  .meta {
+    margin-top: auto;
+    padding-top: 24px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px; color: var(--reader);
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  table {
+    width: 100%; border-collapse: collapse; margin: 18px 0;
+    font-size: 14px;
+  }
+  th, td {
+    padding: 10px 14px; text-align: left;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--reader);
+    text-transform: uppercase; font-weight: 500;
+  }
+  td.num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--ink);
+  }
+  ol, ul { padding-left: 22px; margin: 0 0 14px; }
+  ol li, ul li { margin-bottom: 6px; }
+  .tier {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    margin: 18px 0 10px;
+  }
+  .tier .card {
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 20px;
+    background: var(--paper);
+  }
+  .tier .card.feat { border-color: var(--saffron); }
+  .tier h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 460; font-size: 18px; line-height: 1.2;
+    margin: 0 0 8px;
+  }
+  .tier p.price {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px; line-height: 1; margin: 8px 0 4px;
+  }
+  .tier p.unit {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--reader);
+    text-transform: uppercase; margin-bottom: 10px;
+  }
+  .tier ul { padding-left: 18px; margin: 0; }
+  .tier li { font-size: 13px; line-height: 1.5; }
+  .pillar-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 12px;
+  }
+  .pillar-grid .pillar {
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .pillar h3 {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-weight: 460; font-size: 17px; line-height: 1.25; margin: 8px 0;
+  }
+  .pillar .num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.18em; color: var(--reader);
+  }
+  .ask {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 22px; line-height: 1.5; margin: 14px 0;
+    color: var(--ink);
+  }
+  .signoff {
+    font-family: 'Source Serif 4', Georgia, serif;
+    font-size: 28px; margin-top: 18px;
+  }
+  .signoff small {
+    display: block; font-family: 'JetBrains Mono', monospace;
+    font-size: 11px; letter-spacing: 0.14em; color: var(--reader);
+    margin-top: 4px;
+  }
+  @media print {
+    body { background: #FFF; }
+    .deck { padding: 0; gap: 0; max-width: none; }
+    .slide { box-shadow: none; border-radius: 0; aspect-ratio: auto; height: 100vh; padding: 60px 80px; }
+  }
+  @media (max-width: 720px) {
+    .slide { padding: 40px 28px; aspect-ratio: auto; }
+    .tier, .pillar-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="deck">
+
+<!-- 1 -->
+<section class="slide">
+  <span class="slide-no">01 · cover</span>
+  <p class="label">After the GPT Store</p>
+  <h1 class="cover">The GPT was the <span class="mark">first sentence</span>.<br><em>Now let's finish the conversation.</em></h1>
+  <div class="meta">
+    <span>A Prin7r imprint · 2026</span>
+    <span>gpt-store-custom-gpt.prin7r.com</span>
+  </div>
+</section>
+
+<!-- 2 -->
+<section class="slide">
+  <span class="slide-no">02 · the shift</span>
+  <p class="label">The shift</p>
+  <h2>ChatGPT and the GPT Store have become a serious top-of-funnel.</h2>
+  <p class="lede">Buyers paste real problems into custom GPTs, daily, before they consider a vendor. The model does well on the question — and the chat ends.</p>
+  <p>The problem doesn't end with the chat.</p>
+  <div class="meta"><span>02</span><span>The shift</span></div>
+</section>
+
+<!-- 3 -->
+<section class="slide">
+  <span class="slide-no">03 · the wedge</span>
+  <p class="label">The wedge</p>
+  <h2>We publish productized custom GPTs in the OpenAI Store.</h2>
+  <p class="lede">They do a serious job on a narrow problem. They answer one question well, then politely end with a deep link.</p>
+  <p>The deep link goes here. Where the engagement begins.</p>
+  <div class="meta"><span>03</span><span>The wedge</span></div>
+</section>
+
+<!-- 4 -->
+<section class="slide">
+  <span class="slide-no">04 · why it works</span>
+  <p class="label">Why this works</p>
+  <h2>Discovery is free. The work is paid.</h2>
+  <table>
+    <thead><tr><th>Discovery layer (free)</th><th>Engagement layer (paid)</th></tr></thead>
+    <tbody>
+      <tr><td>Public Store-listed GPT</td><td>Named operators</td></tr>
+      <tr><td>Real artifact in 5 minutes</td><td>Real artifact in 5 working days</td></tr>
+      <tr><td>The audition</td><td>The work</td></tr>
+    </tbody>
+  </table>
+  <p>The audition is free, public, and durable. The work is paid, named, and shipped into the buyer's own workspace.</p>
+  <div class="meta"><span>04</span><span>Why this works</span></div>
+</section>
+
+<!-- 5 -->
+<section class="slide">
+  <span class="slide-no">05 · pricing</span>
+  <p class="label">Pricing</p>
+  <h2>Three doors. Each opens onto a real desk.</h2>
+  <div class="tier">
+    <div class="card">
+      <h3>Pay-per-engagement</h3>
+      <p class="price">$480</p>
+      <p class="unit">per engagement</p>
+      <ul>
+        <li>1 named operator</li>
+        <li>Single deliverable</li>
+        <li>7-day fix window</li>
+      </ul>
+    </div>
+    <div class="card feat">
+      <h3>Subscription</h3>
+      <p class="price">$1,480 / mo</p>
+      <p class="unit">+ $690 onboarding</p>
+      <ul>
+        <li>Private GPT, your context</li>
+        <li>2 operators, Tue/Thu cadence</li>
+        <li>Cancel after any 30 days</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Concierge</h3>
+      <p class="price">$5,800 / mo</p>
+      <p class="unit">+ $4,200 onboarding · 8 weeks</p>
+      <ul>
+        <li>3-operator delivery cell</li>
+        <li>GPTs under your domain</li>
+        <li>One Slack/Telegram channel</li>
+      </ul>
+    </div>
+  </div>
+  <p>Crypto-first checkout (USDT/USDC) via NOWPayments. Card on-ramp at the same URL.</p>
+  <div class="meta"><span>05</span><span>Pricing</span></div>
+</section>
+
+<!-- 6 -->
+<section class="slide">
+  <span class="slide-no">06 · why we win</span>
+  <p class="label">Why we win</p>
+  <h2>Three things a chat window can't give you, ever.</h2>
+  <div class="pillar-grid">
+    <div class="pillar">
+      <p class="num">01</p>
+      <h3>Memory across weeks.</h3>
+      <p>A GPT sees a conversation. We see your pipeline, your last six engagements, the Notion doc the founder edited at 1am.</p>
+    </div>
+    <div class="pillar">
+      <p class="num">02</p>
+      <h3>Named operators.</h3>
+      <p>Engagements are run by a real person whose name is on the email. The GPT prepares the ground.</p>
+    </div>
+    <div class="pillar">
+      <p class="num">03</p>
+      <h3>Files-you-own.</h3>
+      <p>Artifacts live in your Notion / Drive / Slack from day one. There is no platform to leave.</p>
+    </div>
+  </div>
+  <div class="meta"><span>06</span><span>Why we win</span></div>
+</section>
+
+<!-- 7 -->
+<section class="slide">
+  <span class="slide-no">07 · distribution</span>
+  <p class="label">Distribution math</p>
+  <h2>Single-channel acquisition. Zero ad spend.</h2>
+  <table>
+    <thead><tr><th>Channel</th><th>Weight</th><th>Mechanic</th></tr></thead>
+    <tbody>
+      <tr><td>OpenAI GPT Store</td><td class="num">60%</td><td>Each GPT is a free durable audition</td></tr>
+      <tr><td>Peer referrals</td><td class="num">18%</td><td>Past clients introduce next clients</td></tr>
+      <tr><td>Founder content (X / blog)</td><td class="num">12%</td><td>Operator-led essays, no SEO</td></tr>
+      <tr><td>Slack / Discord communities</td><td class="num">6%</td><td>4 communities, hand-curated</td></tr>
+      <tr><td>Direct outbound</td><td class="num">3%</td><td>Concierge tier only; named list</td></tr>
+      <tr><td>Press / podcast</td><td class="num">1%</td><td>Reactive only</td></tr>
+    </tbody>
+  </table>
+  <div class="meta"><span>07</span><span>Distribution</span></div>
+</section>
+
+<!-- 8 -->
+<section class="slide">
+  <span class="slide-no">08 · economics</span>
+  <p class="label">Margins + LTV</p>
+  <h2>Blended LTV ≈ $5,650 per paying customer.</h2>
+  <table>
+    <thead><tr><th>Tier</th><th>Avg sale</th><th>Lifetime</th><th>LTV</th></tr></thead>
+    <tbody>
+      <tr><td>Pay-per-engagement</td><td class="num">$480</td><td class="num">1–2 mo</td><td class="num">$560</td></tr>
+      <tr><td>Subscription</td><td class="num">$1,480 / mo</td><td class="num">6 mo</td><td class="num">$9,600</td></tr>
+      <tr><td>Concierge</td><td class="num">$5,800 / mo</td><td class="num">4 mo</td><td class="num">$26,800</td></tr>
+    </tbody>
+  </table>
+  <p>Gross margin: 32% (Subscription), 38% (Concierge). Pay-per-engagement breaks even at delivery; profit on referral or upsell.</p>
+  <div class="meta"><span>08</span><span>Economics</span></div>
+</section>
+
+<!-- 9 -->
+<section class="slide">
+  <span class="slide-no">09 · 90 days</span>
+  <p class="label">90-day plan</p>
+  <h2>Plant. Tend. Harvest.</h2>
+  <ul>
+    <li><strong>Days 0–30 — Plant.</strong> 5 GPTs in the Store, 4 named operators, first Subscription signed.</li>
+    <li><strong>Days 31–60 — Tend.</strong> First Concierge inquiry, four operator-led essays, four communities active.</li>
+    <li><strong>Days 61–90 — Harvest.</strong> First Concierge completes 8-week minimum, 25–30 paid engagements per month, 80% Subscription month-over-month.</li>
+  </ul>
+  <p>By day 90: $0 spent on paid acquisition. All revenue traceable to a free, durable Store artifact.</p>
+  <div class="meta"><span>09</span><span>Go-to-market</span></div>
+</section>
+
+<!-- 10 -->
+<section class="slide">
+  <span class="slide-no">10 · ask</span>
+  <p class="label">Ask</p>
+  <h2>Open one of the GPTs. Ask the worst question you have.</h2>
+  <p class="ask">If the answer earns the next step, the door is open. If not, the audition was free and the GPT stays useful.</p>
+  <p>gpt-store-custom-gpt.prin7r.com</p>
+  <p class="signoff">a.<small>after-the-store · a Prin7r imprint</small></p>
+  <div class="meta"><span>10</span><span>Ask</span></div>
+</section>
+
+</div>
+</body>
+</html>
