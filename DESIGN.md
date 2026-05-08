@@ -43,8 +43,8 @@ Canonical design + style guide for the After-the-GPT-Store landing. Owned by Chi
 
 | Role        | Token              | Hex      | Usage                                       |
 | ---         | ---                | ---      | ---                                         |
-| Paper       | `paper-100`        | `#FAF6EE` | Background, default canvas                 |
-| Paper Deep  | `paper-200`        | `#F2EBDB` | Section banding, KBD background             |
+| Paper       | `paper-100`        | `#FFFFFF` | Background, default canvas                 |
+| Paper Deep  | `paper-200`        | `#F4F2EE` | Section banding, KBD background             |
 | Paper Edge  | `paper-300`        | `#E5DBC4` | Disabled chips, faint dividers              |
 | Ink         | `ink-900`          | `#161513` | Primary type, dark CTAs                     |
 | Ink Soft    | `ink-800`          | `#26241F` | Body emphasis, hover states                 |

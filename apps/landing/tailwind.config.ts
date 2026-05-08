@@ -15,10 +15,10 @@ const config: Config = {
       colors: {
         // Paper — warm off-white, slightly cream
         paper: {
-          DEFAULT: "#FAF6EE",
+          DEFAULT: "#FFFFFF",
           50: "#FCF9F2",
-          100: "#FAF6EE",
-          200: "#F2EBDB",
+          100: "#FFFFFF",
+          200: "#F4F2EE",
           300: "#E5DBC4",
           400: "#CFC2A4"
         },

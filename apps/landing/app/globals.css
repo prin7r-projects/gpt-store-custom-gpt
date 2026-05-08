@@ -4,8 +4,8 @@
 
 /* [TRANSCRIPT_LANDING_BASE] Global type + paper texture */
 :root {
-  --paper: #FAF6EE;
-  --paper-deep: #F2EBDB;
+  --paper: #FFFFFF;
+  --paper-deep: #F4F2EE;
   --ink: #161513;
   --ink-soft: #3A372F;
   --reader: #7A7464;
@@ -79,7 +79,7 @@ body {
 
 /* Sheet — the transcript / GPT card */
 .sheet {
-  background: #FFFCF6;
+  background: #FAFAF8;
   border: 1px solid var(--rule);
   border-radius: 16px;
   box-shadow:
@@ -89,7 +89,7 @@ body {
 
 /* Deck — pricing cards, slightly heavier */
 .deck {
-  background: #FFFCF6;
+  background: #FAFAF8;
   border: 1px solid var(--rule);
   border-radius: 16px;
 }
