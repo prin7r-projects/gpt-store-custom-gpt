@@ -2,7 +2,7 @@
 
 ## Positioning
 
-> **For founder-operators and ops leaders** who already use ChatGPT as a working tool, **After-the-Store** is **a productized-engagement service** that finishes the conversation a Store-listed GPT politely ended — with named operators, weekly checkpoints, and artifacts that survive the chat — **unlike** agency-style retainers that bill before they ship, **because** the GPT is the audition and the engagement is the work.
+> **For founder-operators and ops leaders** who already use ChatGPT as a working tool, **SeriousSequel** is **a productized-engagement service** that finishes the conversation a Store-listed GPT politely ended — with named operators, weekly checkpoints, and artifacts that survive the chat — **unlike** agency-style retainers that bill before they ship, **because** the GPT is the audition and the engagement is the work.
 
 ## Messaging hierarchy
 
@@ -90,7 +90,7 @@ Example for *Ops Pricing Architect*:
 
 ### Founder X bio
 
-> after-the-store / a Prin7r imprint that publishes productized GPTs as the first sentence of longer engagements. set in serif.
+> SeriousSequel / a Prin7r imprint that publishes productized GPTs as the first sentence of longer engagements. set in serif.
 
 ### LinkedIn (founder profile only)
 
@@ -98,7 +98,7 @@ Used minimally. One post per quarter. Always linking to a real essay, never a ma
 
 ### Press / podcast positioning
 
-Single-line: "We're After-the-Store. We use OpenAI's GPT Store as a free, public audition for productized service engagements."
+Single-line: "We're SeriousSequel. We use OpenAI's GPT Store as a free, public audition for productized service engagements."
 
 ## Tone parameters
 

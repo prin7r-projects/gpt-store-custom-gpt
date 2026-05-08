@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * [TRANSCRIPT_PRICING_CTA] Calls POST /api/checkout/nowpayments and redirects
+ * [SERIOUSSEQUEL_PRICING_CTA] Calls POST /api/checkout/nowpayments and redirects
  * the visitor to the hosted invoice URL. Mirrors the chatbot-agency pattern.
  *
  * - Disabled for ~750ms after click to avoid double-creating invoices.

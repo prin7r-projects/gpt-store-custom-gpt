@@ -1,10 +1,10 @@
 /**
- * [TRANSCRIPT_NOWPAYMENTS] Server-side helpers for NOWPayments hosted invoice.
+ * [SERIOUSSEQUEL_NOWPAYMENTS] Server-side helpers for NOWPayments hosted invoice.
  *
- * After-the-GPT-Store project pricing: three engagement tiers (per-engagement,
- * subscription, concierge). Each maps to a NOWPayments hosted invoice for the
- * onboarding/setup charge; the recurring monthly is billed against the same
- * invoice id when the engagement starts.
+ * SeriousSequel (after-the-GPT-Store imprint) pricing: three engagement tiers
+ * (per-engagement, subscription, concierge). Each maps to a NOWPayments hosted
+ * invoice for the onboarding/setup charge; the recurring monthly is billed
+ * against the same invoice id when the engagement starts.
  *
  * IPN signature verification mirrors payments-prototypes/src/lib/signatures.ts:
  * HMAC-SHA512 over JSON.stringify(sortObject(payload)).
@@ -26,7 +26,7 @@ export type Plan = {
 export const PLANS: Record<PlanId, Plan> = {
   engagement: {
     id: "engagement",
-    name: "After-Store — Pay-per-engagement",
+    name: "SeriousSequel — Pay-per-engagement",
     setupUsd: 480,
     monthlyUsd: null,
     description:
@@ -34,7 +34,7 @@ export const PLANS: Record<PlanId, Plan> = {
   },
   subscription: {
     id: "subscription",
-    name: "After-Store — Monthly subscription",
+    name: "SeriousSequel — Monthly subscription",
     setupUsd: 690,
     monthlyUsd: 1480,
     description:
@@ -42,7 +42,7 @@ export const PLANS: Record<PlanId, Plan> = {
   },
   concierge: {
     id: "concierge",
-    name: "After-Store — Concierge engagement",
+    name: "SeriousSequel — Concierge engagement",
     setupUsd: 4200,
     monthlyUsd: 5800,
     description:
@@ -76,7 +76,7 @@ export async function createNowpaymentsInvoice(input: CreateInvoiceInput): Promi
   const sandbox = (optionalEnv("NOWPAYMENTS_SANDBOX") ?? "false").toLowerCase() === "true";
   const apiBase = sandbox ? "https://api-sandbox.nowpayments.io" : "https://api.nowpayments.io";
 
-  const orderId = `afterstore_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
+  const orderId = `serioussequel_${input.plan.id}_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`;
 
   const body = {
     price_amount: input.plan.setupUsd,

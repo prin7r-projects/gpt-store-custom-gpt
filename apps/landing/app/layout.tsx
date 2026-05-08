@@ -2,16 +2,16 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Found us in the GPT Store? Here's what serious help looks like.",
+  title: "SeriousSequel — Found us in the GPT Store? Here's what serious help looks like.",
   description:
-    "We publish productized custom GPTs in the OpenAI GPT Store as a discovery layer. The same teams behind the GPTs run real engagements with weekly checkpoints, owned workflows, and named deliverables.",
+    "SeriousSequel publishes productized custom GPTs in the OpenAI GPT Store as a discovery layer. The same teams behind the GPTs run real engagements with weekly checkpoints, owned workflows, and named deliverables.",
   metadataBase: new URL("https://gpt-store-custom-gpt.prin7r.com"),
   openGraph: {
-    title: "After the GPT Store",
+    title: "SeriousSequel — after the GPT Store",
     description:
-      "Productized custom GPTs in the OpenAI Store as the first conversation. Real engagements behind them.",
+      "Productized custom GPTs in the OpenAI Store as the first sentence. SeriousSequel finishes the conversation with named operators, weekly checkpoints, and artifacts you keep.",
     url: "https://gpt-store-custom-gpt.prin7r.com",
-    siteName: "After the GPT Store",
+    siteName: "SeriousSequel",
     locale: "en_US",
     type: "website"
   },

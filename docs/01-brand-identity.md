@@ -1,4 +1,8 @@
-# 01 — Brand Identity
+# 01 — Brand Identity (SeriousSequel)
+
+## Brand name
+
+**SeriousSequel.** A Prin7r imprint. The GPT is the first sentence; SeriousSequel is the serious sequel. Domain: `serioussequel.com`.
 
 ## Brand pyramid
 
@@ -9,7 +13,7 @@
 
 ## Positioning statement
 
-> For founder-operators and ops leaders who already use ChatGPT as a working tool, **After-the-Store** is a productized-engagement service that finishes the conversation a Store-listed GPT politely ended — with named operators, weekly checkpoints, and artifacts that survive the chat — unlike agency-style retainers that bill before they ship, because the GPT is the audition and the engagement is the work.
+> For founder-operators and ops leaders who already use ChatGPT as a working tool, **SeriousSequel** is a productized-engagement service that finishes the conversation a Store-listed GPT politely ended — with named operators, weekly checkpoints, and artifacts that survive the chat — unlike agency-style retainers that bill before they ship, because the GPT is the audition and the engagement is the work.
 
 ## Personas (preview)
 
@@ -56,14 +60,14 @@ The accent is a single ink-on-paper highlighter mark. It does not become the dom
 
 ### Logo concept
 
-A lowercase serif `a.` — the first character of "after." The full mark sets `a.` in Source Serif 4 alongside a mono meta line: "after-the-store · a Prin7r imprint." The logotype is intentionally typesetting, not a glyph.
+An uppercase serif `S.` — the first character of "SeriousSequel." The full mark sets `S.` in Source Serif 4 alongside the wordmark "SeriousSequel" and a mono meta line: "a Prin7r imprint · after the GPT Store." The logotype is intentionally typesetting, not a glyph.
 
 ```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="SeriousSequel">
   <rect width="32" height="32" fill="#FAF6EE" rx="6"/>
   <text x="16" y="22" font-family="Source Serif 4, Georgia, serif"
         font-size="22" font-weight="500" fill="#161513"
-        text-anchor="middle">a.</text>
+        text-anchor="middle">S.</text>
   <rect x="6" y="20" width="20" height="3" fill="#E8A82B" opacity="0.42" rx="1"/>
 </svg>
 ```

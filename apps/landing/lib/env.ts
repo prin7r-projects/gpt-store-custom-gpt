@@ -1,5 +1,5 @@
 /**
- * [TRANSCRIPT_ENV] Tiny env reader for /api/checkout/* and /api/webhooks/*.
+ * [SERIOUSSEQUEL_ENV] Tiny env reader for /api/checkout/* and /api/webhooks/*.
  * Mirrors the pattern in payments-prototypes/src/lib/env.ts so the surface
  * looks identical across all Wave 2 builds.
  */

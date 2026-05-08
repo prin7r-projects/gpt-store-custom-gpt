@@ -110,7 +110,7 @@ Wants a tool that runs entirely without human oversight. We are high-touch. They
 
 ### A5 — The "build me a custom GPT" buyer
 
-Wants us to *build them* a GPT they own and publish. This is a different service line (one-off custom-GPT builds for $8k+) and is out of scope for After-the-Store. We refer these to a separate intake.
+Wants us to *build them* a GPT they own and publish. This is a different service line (one-off custom-GPT builds for $8k+) and is out of scope for SeriousSequel. We refer these to a separate intake.
 
 ---
 

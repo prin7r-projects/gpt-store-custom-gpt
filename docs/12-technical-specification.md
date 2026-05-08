@@ -1,6 +1,6 @@
 # 12 — Technical Specification
 
-This is the authoritative technical contract for After-the-Store. The product is **landing-only** — the technical surface is small (one Next.js app, two API routes, NOWPayments integration). Most "implementation" work for After-the-Store happens on the engagement-desk side (humans + Notion + email) which is out of scope for this doc but referenced where it touches the runtime.
+This is the authoritative technical contract for SeriousSequel. The product is **landing-only** — the technical surface is small (one Next.js app, two API routes, NOWPayments integration). Most "implementation" work for SeriousSequel happens on the engagement-desk side (humans + Notion + email) which is out of scope for this doc but referenced where it touches the runtime.
 
 Every endpoint here traces back to a story in doc 11.
 
@@ -47,13 +47,13 @@ flowchart LR
   PM --> EG
 ```
 
-**Wave 2 = Wave 3 = Wave 4 for After-the-Store.** No SaaS app is planned. The product evolves by: (a) publishing more Store GPTs, (b) refining the landing copy, (c) growing the operator roster — not by building software.
+**Wave 2 = Wave 3 = Wave 4 for SeriousSequel.** No SaaS app is planned. The product evolves by: (a) publishing more Store GPTs, (b) refining the landing copy, (c) growing the operator roster — not by building software.
 
 ---
 
 ## 2. Data model
 
-After-the-Store has **no application database**. The "data model" is:
+SeriousSequel has **no application database**. The "data model" is:
 
 | Surface | Where data lives | Retention |
 |---|---|---|
@@ -103,7 +103,7 @@ All endpoints return JSON. Errors use `{ error: { code, message, details? } }`.
 
 - Auth: HMAC-SHA512 in `x-nowpayments-sig` over alphabetically-sorted JSON body, signed with `NOWPAYMENTS_IPN_SECRET`. Constant-time compare via `crypto.timingSafeEqual`.
 - Body: NOWPayments IPN payload.
-- Server flow: verify sig → log verified event with `[TRANSCRIPT_NOWPAYMENTS_IPN]` tag → emit Telegram channel ping with `(order_id, plan, status, payer_email)` → emit Postmark email to engagement-desk distribution list → (Phase 2) write `orders` row.
+- Server flow: verify sig → log verified event with `[SERIOUSSEQUEL_NOWPAYMENTS_IPN]` tag → emit Telegram channel ping with `(order_id, plan, status, payer_email)` → emit Postmark email to engagement-desk distribution list → (Phase 2) write `orders` row.
 - Response 200 `{ ok, order_id, status }` on verified payload. 401 on bad sig. 200 on idempotent replay.
 
 ### 3.3 `POST /api/concierge/request`
@@ -152,7 +152,7 @@ OpenAI has NO API integration here. The published GPTs are author-managed in the
 
 ## 6. Auth
 
-After-the-Store has **no end-user authentication**. The landing is public. The only auth is HMAC-SHA512 on the IPN webhook. There are no admin endpoints, no dashboards, no API keys.
+SeriousSequel has **no end-user authentication**. The landing is public. The only auth is HMAC-SHA512 on the IPN webhook. There are no admin endpoints, no dashboards, no API keys.
 
 If a future need emerges (e.g. operator-facing analytics dashboard), it would be a separate Notion/Retool app, not a SaaS surface on this domain.
 
@@ -166,7 +166,7 @@ Top 5 threats + mitigations:
 2. **Concierge form abuse (spam / scraping).** *Mitigation:* 5 req/min/IP at Traefik. Form fields validated (length cap on `message`). Optional Cloudflare Turnstile if abuse becomes real (Phase 2).
 3. **Fake operator emails (impersonation).** *Mitigation:* Engagement-desk emails always sent from `desk@gpt-store-custom-gpt.prin7r.com` with SPF + DKIM + DMARC strict. Operators never email from personal addresses.
 4. **Information leak via journalctl.** *Mitigation:* IPN log lines NEVER include `pay_address`, `payout_hash`, or full payload — only `(order_id, status, payer_email)`. Tested via log-grep.
-5. **Brand-impersonation domain attack.** *Mitigation:* Trademark monitoring on `aftermthestore.*` and `after-the-store.*`. Cloudflare phishing report ready for known bad neighbors.
+5. **Brand-impersonation domain attack.** *Mitigation:* Trademark monitoring on `aftermthestore.*` and `SeriousSequel.*`. Cloudflare phishing report ready for known bad neighbors.
 
 CSRF: Next.js default + samesite=lax on any future cookie. CORS: `Access-Control-Allow-Origin` set to `https://gpt-store-custom-gpt.prin7r.com` only.
 
@@ -199,7 +199,7 @@ CSRF: Next.js default + samesite=lax on any future cookie. CORS: `Access-Control
 
 ## 10. Non-goals
 
-- **No customer dashboard / login / persistence** (doc 11 AS-2). After-the-Store is landing-only.
+- **No customer dashboard / login / persistence** (doc 11 AS-2). SeriousSequel is landing-only.
 - **No discovery call widget** (AS-1). No calendar embed.
 - **No public case studies / testimonials** (AS-3). Discipline-as-marketing.
 - **No "AI-powered" / "10x" / "supercharge" copy** (AS-4). Brand voice forbids.

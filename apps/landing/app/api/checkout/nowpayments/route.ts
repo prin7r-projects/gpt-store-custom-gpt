@@ -1,5 +1,5 @@
 /**
- * [TRANSCRIPT_NOWPAYMENTS_CHECKOUT] POST /api/checkout/nowpayments
+ * [SERIOUSSEQUEL_NOWPAYMENTS_CHECKOUT] POST /api/checkout/nowpayments
  *
  * Body:    { plan: "engagement" | "subscription" | "concierge" }
  * Returns: { invoice_url: string, invoice_id: string, plan: string, mode: "live" }

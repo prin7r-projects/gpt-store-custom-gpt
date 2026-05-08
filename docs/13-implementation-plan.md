@@ -1,8 +1,8 @@
 # 13 — Implementation Plan
 
-> **Hand-off ready.** This plan is for the Phase 2 implementation agent picking up After-the-Store after Wave 2's marketing landing has shipped. You will find: (a) deployed landing at `https://gpt-store-custom-gpt.prin7r.com` with NOWPayments hosted-invoice checkout for three plans (Pay-per-engagement / Subscription / Concierge); (b) brand identity / audience / architecture in `/docs/01..10-*.md`; (c) the user-story contract in `/docs/11-user-stories-and-scenarios.md`; (d) the technical spec in `/docs/12-technical-specification.md`. **This is a landing-only project**: there is NO `apps/app/` to bring online, NO SaaS surface to build. Your work is on landing copy, conversion UX, the engagement-desk integration, and the published Store GPT funnel. Read docs 11 + 12 before starting.
+> **Hand-off ready.** This plan is for the Phase 2 implementation agent picking up SeriousSequel after Wave 2's marketing landing has shipped. You will find: (a) deployed landing at `https://gpt-store-custom-gpt.prin7r.com` with NOWPayments hosted-invoice checkout for three plans (Pay-per-engagement / Subscription / Concierge); (b) brand identity / audience / architecture in `/docs/01..10-*.md`; (c) the user-story contract in `/docs/11-user-stories-and-scenarios.md`; (d) the technical spec in `/docs/12-technical-specification.md`. **This is a landing-only project**: there is NO `apps/app/` to bring online, NO SaaS surface to build. Your work is on landing copy, conversion UX, the engagement-desk integration, and the published Store GPT funnel. Read docs 11 + 12 before starting.
 
-The "implementation" of After-the-Store is mostly **content-side** (publish more Store GPTs, refine landing copy, grow the operator roster). The code surface stays small by design.
+The "implementation" of SeriousSequel is mostly **content-side** (publish more Store GPTs, refine landing copy, grow the operator roster). The code surface stays small by design.
 
 ---
 
@@ -77,7 +77,7 @@ The "implementation" of After-the-Store is mostly **content-side** (publish more
 **Tasks.**
 1. Add a SQLite file at `/opt/prin7r-deploys/gpt-store-custom-gpt/data/orders.sqlite` with the schema from doc 12 §2.
 2. On verified IPN, write an `orders` row with `(order_id, plan, amount_usd, invoice_id, payer_email, referral_source, paid_at, status)`.
-3. Add a daily cron (`workers/notion-sync.ts`) that reads the previous day's orders and appends them to a Notion data source `After-the-Store Orders` (data source id in `NOTION_ORDERS_DSID`).
+3. Add a daily cron (`workers/notion-sync.ts`) that reads the previous day's orders and appends them to a Notion data source `SeriousSequel Orders` (data source id in `NOTION_ORDERS_DSID`).
 4. Add `referralSource` extraction at landing-page entry: read `?ref=` query, set 30-day cookie, append to checkout body.
 5. Add a marketing dashboard view in Notion: pivot table of conversions-by-GPT.
 

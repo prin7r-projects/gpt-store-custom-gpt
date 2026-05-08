@@ -1,8 +1,8 @@
 # 11 — User Stories and Scenarios
 
-This document is the canonical input contract for After-the-Store's Phase 2 enhancements. Unlike most Wave 2 projects, After-the-Store is **landing-only** — there is no SaaS app, no dashboard, no recurring runtime beyond the engagement-desk service. This makes the user-story surface narrower but more important: every conversion path on the landing must trace back to a story below.
+This document is the canonical input contract for SeriousSequel's Phase 2 enhancements. Unlike most Wave 2 projects, SeriousSequel is **landing-only** — there is no SaaS app, no dashboard, no recurring runtime beyond the engagement-desk service. This makes the user-story surface narrower but more important: every conversion path on the landing must trace back to a story below.
 
-After-the-Store converts OpenAI GPT Store visitors who experienced a "useful but generic" answer from one of our published GPTs into paid engagements (Pay-per-engagement, Subscription, or Concierge tier) — delivered by named operators on a Tuesday/Thursday checkpoint cadence.
+SeriousSequel converts OpenAI GPT Store visitors who experienced a "useful but generic" answer from one of our published GPTs into paid engagements (Pay-per-engagement, Subscription, or Concierge tier) — delivered by named operators on a Tuesday/Thursday checkpoint cadence.
 
 ---
 
@@ -47,7 +47,7 @@ The bargain hunter (wants the GPT free, never the engagement), the category-curi
 
 ### Scenario 1 — Maya pays for Pay-per-engagement on Saturday night
 
-**Trigger.** Maya pastes a pricing question into our published Store GPT at 22:00 Saturday. The GPT answers competently, then suggests the deep link to After-the-Store with one closing line: "Want a named operator to finish what this GPT politely ended?"
+**Trigger.** Maya pastes a pricing question into our published Store GPT at 22:00 Saturday. The GPT answers competently, then suggests the deep link to SeriousSequel with one closing line: "Want a named operator to finish what this GPT politely ended?"
 
 **Steps.**
 1. Maya clicks the deep link. Lands on `https://gpt-store-custom-gpt.prin7r.com`. *Frontend: `Hero`, `TranscriptCard`, `PricingTriad` on `apps/landing/app/page.tsx`.*
@@ -172,7 +172,7 @@ The landing has no "Book a 15-min call" widget. Discovery is replaced by the Sto
 
 ### AS-2 — No customer dashboard / login / persistence
 
-After-the-Store is landing-only. There is no `/dashboard`, `/login`, or DB. Engagements are tracked via email + Notion (human side). Implementation must NOT add an `apps/app/` SaaS surface.
+SeriousSequel is landing-only. There is no `/dashboard`, `/login`, or DB. Engagements are tracked via email + Notion (human side). Implementation must NOT add an `apps/app/` SaaS surface.
 
 ### AS-3 — No public case studies
 

@@ -1,6 +1,6 @@
-# DESIGN.md — gpt-store-custom-gpt
+# DESIGN.md — SeriousSequel (`gpt-store-custom-gpt`)
 
-Canonical design + style guide for the After-the-GPT-Store landing. Owned by Chief of Design. Kept in sync with `apps/landing/`. ShadCN baseline applies.
+Canonical design + style guide for the SeriousSequel landing — the Prin7r imprint that runs the conversation after the GPT Store. Owned by Chief of Design. Kept in sync with `apps/landing/`. ShadCN baseline applies.
 
 ## 1. Product and audience
 
@@ -98,9 +98,9 @@ Use saffron exactly once per visible viewport. The mark is intentionally lossy (
 
 | Component        | File                                        | Notes |
 | ---              | ---                                         | --- |
-| `NavStrip`       | `app/page.tsx`                              | Logotype `a.` + meta + nav links + CTA pill |
+| `NavStrip`       | `app/page.tsx`                              | Logotype `S.` + serif "SeriousSequel" wordmark + meta + nav links + CTA pill |
 | `Hero`           | `app/page.tsx`                              | Two-column copy + transcript card |
-| `TranscriptCard` | `app/page.tsx`                              | The brand mark — split GPT vs after-store |
+| `TranscriptCard` | `app/page.tsx`                              | The brand mark — split GPT vs SeriousSequel |
 | `ConversationLine` | `app/page.tsx`                            | Tape-badge + body + optional attribution + cursor |
 | `Catalog`        | `app/page.tsx`                              | 5-card mini-catalog of published GPTs + 1 "publishing-next" |
 | `Pillar`         | `app/page.tsx`                              | Three sheet cards under "Why click through" |
@@ -116,7 +116,7 @@ Future ShadCN imports (when we add them): `Button`, `Dialog`, `Tooltip`, `Sheet`
 
 In order:
 
-1. **Nav strip** — `a.` logotype, meta, nav links, CTA pill.
+1. **Nav strip** — `S.` monogram, serif "SeriousSequel" wordmark, meta, nav links, CTA pill.
 2. **Hero** — Source-Serif headline ("The GPT was the first sentence…"), supporting paragraph, two CTAs (`Start an engagement` ink, `Try a GPT first` outline), three meta bullets, transcript card on the right.
 3. **Catalog** ("What our GPTs do today") — 5 GPT-Store deep-link cards + 1 "publishing-next" card. Each card carries a tape-badge for the typical handoff tier.
 4. **Why click through** — three numbered pillars; one highlighter mark per pillar.
@@ -183,3 +183,4 @@ Both linked here and embedded in `README.md`. Re-capture after every meaningful 
 ## 15. Changelog
 
 - `2026-05-08` v0.1 — Initial scaffold. Hero, transcript card, mini-catalog, three-tier pricing, proof, FAQ, footer. NOWPayments wired. ShadCN baseline declared, no imports yet.
+- `2026-05-08` v0.2 — **Brand introduction: TBD → SeriousSequel.** Per `wave2-name-verdicts.json` the brand was originally TBD ("v3 follow-up: brand assignment pending project positioning finalization"). Wave 2 rebrand Agent Q (Opus 4.7) brainstormed 30 candidates across 5 patterns (compounds, coined words, trade verbs, editorial, cadence) and ran the 4-check methodology (RDAP `.com`, SERP via TinyFish, pronounce/spell, trademark heuristic). Winner: **SeriousSequel** (`serioussequel.com` AVAILABLE per RDAP 404). Direct match to existing layout copy ("Found us in the GPT Store? Here's what serious help looks like" + "The GPT was the first sentence — now let's finish the conversation"). The GPT is the first attempt; SeriousSequel is the SERIOUS SEQUEL. SERP completely clean — only "serious sequel" used as movie/film phrase, zero SaaS competitors. No trademark conflict. Rejected candidates: chapterfollowup (clean SERP but long), epilogueworks (Zurich photo studio actively uses term), weeklycheckpoint (gaming hashtag noise + Valorant API field), handoffhouse (Handoff.ai is funded competitor), afterthechat (low distinctiveness as wordmark — generic phrase used by ML/SaaS articles), finishtheessay (AI essay-grader sector adjacency), foreword/postface/outpost (registered .com), bookend/byline/followup (registered .com), nextsentence (registered .com), pickupthepen/finishedwork/realdraft (registered .com), pressedfine/honestmastery/theseriousdraft/thedraftafter (.com available but weaker fit). Replacement scope: Logo monogram (`a.` → `S.`) and serif wordmark "SeriousSequel" added to nav + footer in `apps/landing/app/page.tsx`; `aria-label`, `metadata.title`, `metadata.description`, `og.title`, `og.siteName`, `twitter.title` rebranded; `apps/landing/app/icon.svg` letter changed `a.` → `S.` with `aria-label="SeriousSequel"`; `apps/landing/components/pricing-cta.tsx` log tag `[TRANSCRIPT_PRICING_CTA]` → `[SERIOUSSEQUEL_PRICING_CTA]`; `apps/landing/app/api/checkout/nowpayments/route.ts` + `apps/landing/app/api/webhooks/nowpayments/route.ts` log tags rebranded (`[TRANSCRIPT_*]` → `[SERIOUSSEQUEL_*]`); `apps/landing/lib/nowpayments.ts` 3 PLAN.name fields ("After-Store —" → "SeriousSequel —") + orderId prefix (`afterstore_*` → `serioussequel_*`); `apps/landing/lib/env.ts` log tag rebranded; `apps/landing/app/globals.css` header comment; `apps/landing/package.json#name` (`transcript-landing` → `serioussequel-landing`); `Dockerfile.landing` header comment; `README.md` H1 + Brand section. Slug + URL `gpt-store-custom-gpt.prin7r.com` unchanged. Re-deployed to storage-contabo, screenshots re-captured. | Wave 2 rebrand Agent Q |

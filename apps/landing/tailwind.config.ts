@@ -1,7 +1,7 @@
 import type { Config } from "tailwindcss";
 
 /**
- * [TRANSCRIPT_LANDING] Tailwind config for the GPT-Store-handoff landing.
+ * [SERIOUSSEQUEL_LANDING] Tailwind config for the SeriousSequel GPT-Store-handoff landing.
  * Brand DNA: "transcript-paper" — warm white + ink + saffron highlighter.
  * Typography: Source Serif 4 (display) / Inter (body) / JetBrains Mono (transcript).
  */

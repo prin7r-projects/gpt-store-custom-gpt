@@ -1,5 +1,5 @@
 /**
- * [TRANSCRIPT_LANDING] After-Store conversion landing.
+ * [SERIOUSSEQUEL_LANDING] SeriousSequel conversion landing.
  *
  * Layout:
  *   1. Nav strip (typewriter framing)
@@ -37,10 +37,13 @@ function NavStrip() {
   return (
     <header className="border-b border-rule">
       <div className="max-w-page mx-auto px-6 py-5 flex items-center justify-between">
-        <a href="#hero" className="flex items-center gap-3 group" aria-label="After the GPT Store, by Prin7r">
-          <span className="font-serif text-2xl text-ink-900 leading-none">a.</span>
-          <span className="hidden sm:inline-block text-[13px] tracking-tight text-reader">
-            after-the-store <span className="text-ink-300 mx-1.5">·</span> a Prin7r imprint
+        <a href="#hero" className="flex items-center gap-3 group" aria-label="SeriousSequel, by Prin7r">
+          <span className="font-serif text-2xl text-ink-900 leading-none">S.</span>
+          <span className="hidden sm:inline-block text-[15px] font-serif tracking-tight text-ink-900">
+            SeriousSequel
+          </span>
+          <span className="hidden sm:inline-block text-[12px] tracking-tight text-reader">
+            <span className="text-ink-300 mx-1">·</span> a Prin7r imprint
           </span>
         </a>
         <nav className="flex items-center gap-1 sm:gap-3 text-[13px] text-ink-700">
@@ -142,7 +145,7 @@ function TranscriptCard() {
           </p>
         </div>
 
-        {/* Right: After-the-store engagement — names, dates, artifacts */}
+        {/* Right: SeriousSequel engagement — names, dates, artifacts */}
         <div className="p-5 bg-paper-100/40">
           <p className="section-label mb-3 text-saffron-500">B — AFTER THE STORE</p>
           <ConversationLine speaker="ops" body="Pulled your last 6 onboardings from HubSpot. Three stalled at the BambooHR step. Pricing's downstream — let's fix that first." attribution="— J. Romero, delivery lead" />
@@ -581,12 +584,13 @@ function Footer() {
       <div className="max-w-page mx-auto px-6 py-14 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-5">
           <p className="font-serif text-[28px] leading-tight text-ink-900 mb-2">
-            a. <span className="font-sans text-[14px] tracking-tight text-reader">after-the-store</span>
+            S. <span className="text-ink-900">SeriousSequel</span>
           </p>
+          <p className="font-mono text-[12px] tracking-tight text-reader mb-3">a Prin7r imprint · after the GPT Store</p>
           <p className="text-[14px] text-ink-700 leading-relaxed max-w-[42ch]">
-            A Prin7r imprint that publishes productized GPTs as the first sentence
-            of longer engagements. Operating quietly out of the printed-paper
-            tradition.
+            SeriousSequel publishes productized GPTs as the first sentence of
+            longer engagements — and runs the actual sequel quietly out of the
+            printed-paper tradition.
           </p>
         </div>
         <div className="md:col-span-3">
@@ -607,7 +611,7 @@ function Footer() {
       </div>
       <div className="border-t border-rule">
         <div className="max-w-page mx-auto px-6 py-5 flex flex-col sm:flex-row justify-between gap-3 text-[12px] font-mono text-reader">
-          <span>© 2026 Prin7r · After-the-Store imprint</span>
+          <span>© 2026 Prin7r · SeriousSequel imprint</span>
           <span>Set in Source Serif 4 / Inter / JetBrains Mono · printed on warm paper</span>
         </div>
       </div>

@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* [TRANSCRIPT_LANDING_BASE] Global type + paper texture */
+/* [SERIOUSSEQUEL_LANDING_BASE] Global type + paper texture */
 :root {
   --paper: #FFFFFF;
   --paper-deep: #F4F2EE;

@@ -2,7 +2,7 @@
 
 ## System overview
 
-After-the-Store is a **landing-only** marketing site that converts OpenAI-GPT-Store visitors into engagement requests. It does not host any user accounts, store any user data beyond webhook logs, or run any heavyweight services. The architecture is intentionally minimal — every component answers a single, well-bounded question.
+SeriousSequel is a **landing-only** marketing site that converts OpenAI-GPT-Store visitors into engagement requests. It does not host any user accounts, store any user data beyond webhook logs, or run any heavyweight services. The architecture is intentionally minimal — every component answers a single, well-bounded question.
 
 ```mermaid
 flowchart LR
@@ -62,7 +62,7 @@ flowchart LR
 
 - **POST**. Reads raw body, parses JSON, verifies `x-nowpayments-sig` HMAC-SHA512.
 - HMAC algorithm: `crypto.createHmac("sha512", secret).update(JSON.stringify(sortObject(payload))).digest("hex")`. Identical to `payments-prototypes/src/lib/signatures.ts`.
-- Logs verified events under `[TRANSCRIPT_NOWPAYMENTS_IPN]` to journalctl on the deploy host.
+- Logs verified events under `[SERIOUSSEQUEL_NOWPAYMENTS_IPN]` to journalctl on the deploy host.
 - No DB write at this layer — order persistence is deferred to a later wave when `apps/app/` ships.
 
 ### `lib/nowpayments.ts`
@@ -81,7 +81,7 @@ flowchart LR
 ### Visitor → engagement (happy path)
 
 1. Visitor opens a published GPT in the OpenAI Store.
-2. The GPT answers their question, then suggests the After-the-Store deep link in its closing message.
+2. The GPT answers their question, then suggests the SeriousSequel deep link in its closing message.
 3. Browser navigates to `https://gpt-store-custom-gpt.prin7r.com`.
 4. Visitor reads the hero, transcript card, "what our GPTs do today," and "why click through."
 5. At pricing, visitor clicks one of three NOWPayments CTAs.

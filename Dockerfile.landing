@@ -1,4 +1,4 @@
-# Multistage build for Next.js 15 standalone landing
+# SeriousSequel landing — multistage build for Next.js 15 standalone landing
 # Reference: /Users/keer/projects/prin7r/wave2-builds/chatbot-agency/Dockerfile.landing
 FROM node:22-alpine AS deps
 WORKDIR /app

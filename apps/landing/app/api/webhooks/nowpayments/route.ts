@@ -1,5 +1,5 @@
 /**
- * [TRANSCRIPT_NOWPAYMENTS_IPN] POST /api/webhooks/nowpayments
+ * [SERIOUSSEQUEL_NOWPAYMENTS_IPN] POST /api/webhooks/nowpayments
  *
  * NOWPayments delivers payment status updates here. Body is a JSON payload
  * with payment metadata; the `x-nowpayments-sig` header carries the
@@ -58,7 +58,7 @@ export async function POST(request: Request) {
     stringValue(payload.order_id) ?? stringValue(payload.payment_id) ?? "nowpayments_unknown";
 
   console.log(
-    `[TRANSCRIPT_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid}`
+    `[SERIOUSSEQUEL_NOWPAYMENTS_IPN] verified=true order_id=${orderId} status=${status} paid=${paid}`
   );
 
   return NextResponse.json({

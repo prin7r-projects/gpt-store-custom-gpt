@@ -107,4 +107,4 @@ If you're a founder or ops leader: open one of our GPTs at the top of `gpt-store
 
 If the answer earns the next step, the door is open. If not, the audition is free.
 
-— **a.** *after-the-store · a Prin7r imprint*
+— **a.** *SeriousSequel · a Prin7r imprint*
