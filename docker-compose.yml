@@ -1,0 +1,18 @@
+services:
+  landing:
+    build:
+      context: .
+      dockerfile: Dockerfile.landing
+    image: gpt-store-custom-gpt-landing:latest
+    container_name: gpt-store-custom-gpt-landing
+    restart: unless-stopped
+    expose:
+      - "3000"
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gpt-store-custom-gpt.rule=Host(`gpt-store-custom-gpt.prin7r.com`)"
+      - "traefik.http.routers.gpt-store-custom-gpt.entrypoints=websecure"
+      - "traefik.http.routers.gpt-store-custom-gpt.tls.certresolver=letsencrypt"
+      - "traefik.http.services.gpt-store-custom-gpt.loadbalancer.server.port=3000"

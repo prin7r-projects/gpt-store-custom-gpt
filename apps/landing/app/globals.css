@@ -1,0 +1,160 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* [TRANSCRIPT_LANDING_BASE] Global type + paper texture */
+:root {
+  --paper: #FAF6EE;
+  --paper-deep: #F2EBDB;
+  --ink: #161513;
+  --ink-soft: #3A372F;
+  --reader: #7A7464;
+  --rule: #E5DBC4;
+  --saffron: #E8A82B;
+  --saffron-soft: rgba(232, 168, 43, 0.42);
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: 'Inter', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+  background:
+    radial-gradient(1100px 600px at 12% -10%, rgba(232, 168, 43, 0.07), transparent 50%),
+    radial-gradient(900px 500px at 95% 30%, rgba(232, 168, 43, 0.04), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Faint horizontal ruling, like notebook paper */
+.paper-rule {
+  background-image: repeating-linear-gradient(
+    to bottom,
+    transparent 0,
+    transparent 31px,
+    rgba(22, 21, 19, 0.05) 32px
+  );
+}
+
+/* Highlighter mark — used on a single key word at a time */
+.mark-saffron {
+  background: linear-gradient(180deg, transparent 60%, var(--saffron-soft) 60%);
+  padding: 0 0.08em;
+  white-space: pre-wrap;
+}
+
+/* A serif headline that reads like the first sentence of an essay */
+.headline-serif {
+  font-family: 'Source Serif 4', 'Source Serif Pro', Georgia, serif;
+  font-weight: 380;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+.headline-serif em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* Caret for the live-typing transcript */
+.cursor-bar::after {
+  content: "";
+  display: inline-block;
+  width: 0.55ch;
+  height: 1.1em;
+  margin-left: 0.05em;
+  background: currentColor;
+  vertical-align: -0.16em;
+  animation: caret-pulse 1.05s steps(1, end) infinite;
+}
+
+@keyframes caret-pulse {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* Sheet — the transcript / GPT card */
+.sheet {
+  background: #FFFCF6;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+  box-shadow:
+    0 1px 0 rgba(22, 21, 19, 0.04),
+    0 18px 40px -18px rgba(22, 21, 19, 0.18);
+}
+
+/* Deck — pricing cards, slightly heavier */
+.deck {
+  background: #FFFCF6;
+  border: 1px solid var(--rule);
+  border-radius: 16px;
+}
+
+/* Edge — the meta line above each transcript card */
+.tape {
+  background: rgba(232, 168, 43, 0.18);
+  border: 1px solid rgba(232, 168, 43, 0.45);
+  border-radius: 4px;
+  padding: 1px 6px;
+  font-family: 'JetBrains Mono', 'Fira Code', ui-monospace, Menlo, monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  color: #6B4D08;
+  text-transform: uppercase;
+}
+
+.kbd {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.8em;
+  background: var(--paper-deep);
+  border: 1px solid var(--rule);
+  border-bottom-width: 2px;
+  border-radius: 4px;
+  padding: 1px 6px;
+  color: var(--ink-soft);
+}
+
+/* Underline link in copy */
+.copy-link {
+  color: var(--ink);
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  transition: color 200ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.copy-link:hover {
+  color: var(--saffron);
+}
+
+/* Section divider */
+hr.fold {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+}
+
+/* Small caps label for sections */
+.section-label {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--reader);
+}
+
+/* Focus ring */
+*:focus-visible {
+  outline: 2px solid var(--saffron);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbar trim on Safari/Webkit */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: var(--rule); border-radius: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
