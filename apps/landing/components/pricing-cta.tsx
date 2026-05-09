@@ -4,6 +4,7 @@
  * [SERIOUSSEQUEL_PRICING_CTA] Calls POST /api/checkout/nowpayments and redirects
  * the visitor to the hosted invoice URL. Mirrors the chatbot-agency pattern.
  *
+ * - Reads referral source from `serioussequel_ref` cookie (set by middleware on ?ref=).
  * - Disabled for ~750ms after click to avoid double-creating invoices.
  * - On 503 missing_env shows a quiet copy fallback (lead-magnet email path).
  * - On 502/4xx shows a plain message; the live invoice id flows back into the
@@ -23,10 +24,30 @@ type Props = {
   emailFallback?: string;
 };
 
-type ApiOk = { mode: "live"; invoice_url: string; invoice_id: string };
+type ApiOk = {
+  mode: "live";
+  invoice_url: string;
+  invoice_id: string;
+  referral_source?: string;
+};
 type ApiErr = { error: string; message?: string; missing?: string };
 
-export function PricingCta({ plan, label, tone = "ink", className, emailFallback = "desk@gpt-store-custom-gpt.prin7r.com" }: Props) {
+/**
+ * Reads a cookie value by name. Returns null if not found.
+ */
+function getCookie(name: string): string | null {
+  if (typeof document === "undefined") return null;
+  const match = document.cookie.match(new RegExp(`(?:^|; )${name}=([^;]*)`));
+  return match ? decodeURIComponent(match[1]) : null;
+}
+
+export function PricingCta({
+  plan,
+  label,
+  tone = "ink",
+  className,
+  emailFallback = "desk@gpt-store-custom-gpt.prin7r.com",
+}: Props) {
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -35,10 +56,15 @@ export function PricingCta({ plan, label, tone = "ink", className, emailFallback
     setBusy(true);
     setError(null);
     try {
+      const referralSource = getCookie("serioussequel_ref");
+
       const res = await fetch("/api/checkout/nowpayments", {
         method: "POST",
         headers: { "content-type": "application/json" },
-        body: JSON.stringify({ plan })
+        body: JSON.stringify({
+          plan,
+          ...(referralSource ? { referralSource } : {}),
+        }),
       });
       const json = (await res.json()) as ApiOk | ApiErr;
       if (res.ok && "invoice_url" in json && json.invoice_url) {
@@ -94,7 +120,10 @@ export function PricingCta({ plan, label, tone = "ink", className, emailFallback
         We never see your card; we receive a verified invoice id.
       </p>
       {error && (
-        <p role="alert" className="text-xs text-ink-800 leading-snug border-l-2 border-saffron-300 pl-3">
+        <p
+          role="alert"
+          className="text-xs text-ink-800 leading-snug border-l-2 border-saffron-300 pl-3"
+        >
           {error}
         </p>
       )}
