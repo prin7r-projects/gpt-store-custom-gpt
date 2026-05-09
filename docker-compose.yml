@@ -12,7 +12,52 @@ services:
       - .env
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.gpt-store-custom-gpt.rule=Host(`gpt-store-custom-gpt.prin7r.com`)"
-      - "traefik.http.routers.gpt-store-custom-gpt.entrypoints=websecure"
-      - "traefik.http.routers.gpt-store-custom-gpt.tls.certresolver=letsencrypt"
-      - "traefik.http.services.gpt-store-custom-gpt.loadbalancer.server.port=3000"
+      - "traefik.http.routers.gpt-store-custom-gpt-landing.rule=Host(`gpt-store-custom-gpt.prin7r.com`)"
+      - "traefik.http.routers.gpt-store-custom-gpt-landing.entrypoints=websecure"
+      - "traefik.http.routers.gpt-store-custom-gpt-landing.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.gpt-store-custom-gpt-landing.priority=1"
+      - "traefik.http.services.gpt-store-custom-gpt-landing.loadbalancer.server.port=3000"
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.app
+    image: gpt-store-custom-gpt-app:latest
+    container_name: gpt-store-custom-gpt-app
+    restart: unless-stopped
+    expose:
+      - "3000"
+    env_file:
+      - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gpt-store-custom-gpt-app.rule=Host(`gpt-store-custom-gpt.prin7r.com`) && PathPrefix(`/app`)"
+      - "traefik.http.routers.gpt-store-custom-gpt-app.entrypoints=websecure"
+      - "traefik.http.routers.gpt-store-custom-gpt-app.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.gpt-store-custom-gpt-app.priority=10"
+      - "traefik.http.services.gpt-store-custom-gpt-app.loadbalancer.server.port=3000"
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    image: gpt-store-custom-gpt-api:latest
+    container_name: gpt-store-custom-gpt-api
+    restart: unless-stopped
+    expose:
+      - "8080"
+    env_file:
+      - .env
+    environment:
+      PORT: "8080"
+      HOSTNAME: "0.0.0.0"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gpt-store-custom-gpt-api.rule=Host(`gpt-store-custom-gpt.prin7r.com`) && PathPrefix(`/api/`)"
+      - "traefik.http.routers.gpt-store-custom-gpt-api.entrypoints=websecure"
+      - "traefik.http.routers.gpt-store-custom-gpt-api.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.gpt-store-custom-gpt-api.priority=20"
+      - "traefik.http.services.gpt-store-custom-gpt-api.loadbalancer.server.port=8080"
+
+volumes:
+  orders_data:

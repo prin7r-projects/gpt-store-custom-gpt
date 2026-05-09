@@ -1,0 +1,52 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/**
+ * SeriousSequel App — restrained dashboard palette.
+ * DESIGN.md tokens: paper white, ink black, saffron accent, reader gray.
+ * No orange/coral/purple/violet.
+ */
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+    --background: 0 0% 100%;
+    --foreground: 30 10% 7%;
+    --card: 40 10% 98%;
+    --card-foreground: 30 10% 7%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 30 10% 7%;
+    --primary: 30 10% 7%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 42 10% 93%;
+    --secondary-foreground: 30 10% 7%;
+    --muted: 42 10% 93%;
+    --muted-foreground: 36 4% 46%;
+    --accent: 42 76% 53%;
+    --accent-foreground: 30 10% 7%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 42 20% 88%;
+    --input: 42 20% 88%;
+    --ring: 42 76% 53%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  *:focus-visible {
+    outline: 2px solid #E8A82B;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
